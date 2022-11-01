@@ -1,18 +1,16 @@
-// Assignment Code
+//targets html element with an id 
 var generateBtn = document.querySelector("#generate");
-
+//Generates a random string using different the different character sets
 function generatePassword(length, characters) {
   var result = '';
-  var charactersLength = characters.length;
-
-  //generates a random string
+  var charactersLength = characters.length; 
   for (var i = 0; i < length; i++) {
     result += characters.charAt(Math.floor(Math.random() * charactersLength));
   }
   return result;
 }
 
-// Write password to the #password input
+//Different character set variables to be passed in the writePassword function
 function writePassword() {
   var characters = '';
   var lowercase = 'zxcvbnmlkjhgfdsaqwertyuiop'
@@ -23,6 +21,7 @@ function writePassword() {
   if(question1 === null) {
     return
   }
+  //Casting answer to the first question as a number
   queston1 = Number(question1)
 
   while (!(question1 >= 8 && question1 <= 128)) {
@@ -34,7 +33,8 @@ function writePassword() {
   }
   //a prompt should be sent out to the user asking them to 
   //confirm whether or not to include lowercase, uppercase, 
-  //numeric, and/or special characters
+  //numeric, and/or special characters to make our final 
+  //character set catered to the users criteria
   let question2 = prompt("Would you like to include lowercase characters? y/n");
   if(question2 === null) {
     return
@@ -92,6 +92,7 @@ function writePassword() {
     characters += special
 
   }
+  //Just in case user chooses n for all character options
   if (question2 === "n" && question3 === "n" && question4 === "n" && question5 === "n") {
     alert("MUST ANSWER y TO AT LEAST ONE CHARACTER TYPE REQUIREMENT QUESTION");
     return
